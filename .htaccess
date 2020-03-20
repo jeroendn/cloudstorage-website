@@ -1,11 +1,11 @@
 #DON'T SHOW DIRECTORY LISTINGS
 Options -Indexes
 
-ErrorDocument 400 /snoepwinkel_website/pages/error.php
-ErrorDocument 401 /snoepwinkel_website/pages/error.php
-ErrorDocument 403 /snoepwinkel_website/pages/error.php
-ErrorDocument 404 /snoepwinkel_website/pages/error.php
-ErrorDocument 405 /snoepwinkel_website/pages/error.php
+ErrorDocument 400 /cloudstorage/pages/error.php
+ErrorDocument 401 /cloudstorage/pages/error.php
+ErrorDocument 403 /cloudstorage/pages/error.php
+ErrorDocument 404 /cloudstorage/pages/error.php
+ErrorDocument 405 /cloudstorage/pages/error.php
 
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -14,11 +14,8 @@ RewriteRule ^(.*)$ $1.php
 
 RewriteRule ^$ pages/home.php
 RewriteRule ^home$ pages/home.php
-RewriteRule ^shop$ pages/shop.php
-RewriteRule ^product$ pages/product.php
-RewriteRule ^cart$ pages/cart.php
-RewriteRule ^checkout$ pages/checkout.php
-RewriteRule ^order_status$ pages/order_status.php
+RewriteRule ^documents$ pages/documents.php
+RewriteRule ^shares$ pages/shares.php
 
 RewriteRule ^beheer$ admin/pages/dashboard.php
 RewriteRule ^beheer/login$ admin/pages/login.php
@@ -27,3 +24,8 @@ RewriteRule ^beheer/producten$ admin/pages/producten.php
 RewriteRule ^beheer/bestellingen$ admin/pages/orders.php
 
 DirectoryIndex index.php
+
+<FilesMatch "\.(ini|psd|log|sh|png)$">
+Order allow,deny
+Deny from all
+</FilesMatch>

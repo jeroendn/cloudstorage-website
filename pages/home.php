@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once __DIR__ . '../../php/dbconnection.inc.php';
+include_once __DIR__ . '../../php/dbconnection.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,12 +8,12 @@ include_once __DIR__ . '../../php/dbconnection.inc.php';
   <head>
     <title>De Snoepwinkel</title>
     <meta name="description" content=""/>
-    <?php include_once __DIR__ . '../../php/head.inc.php' ?>
+    <?php include_once __DIR__ . '../../php/head.php' ?>
   </head>
 
   <body>
     <!-- header -->
-    <?php include_once __DIR__ . '../../php/header.inc.php' ?>
+    <?php include_once __DIR__ . '../../php/header.php' ?>
 
     <main id="home-page" class="page-content">
       <section class="container mt-5">
@@ -38,9 +38,9 @@ include_once __DIR__ . '../../php/dbconnection.inc.php';
     </main>
 
     <!-- footer -->
-    <?php include_once __DIR__ . '../../php/footer.inc.php' ?>
+    <?php include_once __DIR__ . '../../php/footer.php' ?>
 
     <!-- scripts -->
-    <?php include_once __DIR__ . '../../php/js.inc.php' ?>
+    <?php include_once __DIR__ . '../../php/js_include.php' ?>
   </body>
 </html>
