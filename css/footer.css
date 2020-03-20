@@ -1,8 +1,8 @@
 #footer {
   min-height: 400px;
   width: 100%;
-  background-color: #e7717d;
-  border-top: 10px solid #7e685a;
+  background-color: #8190ff;
+  border-top: 10px solid #0a102d;
   display: flex;
   flex-flow: row wrap;
   align-items: flex-end;
@@ -16,7 +16,7 @@
 #footer #bottom-bar {
   height: 50px;
   width: 100%;
-  background: #afd275;
+  background: #0a102d;
   padding: 0 10%;
   display: flex;
   align-items: center;

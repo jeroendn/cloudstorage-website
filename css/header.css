@@ -8,8 +8,8 @@ header#header {
   display: flex;
   justify-content: space-between;
   z-index: 2;
-  background-color: #e7717d;
-  border-bottom: 2px solid #7e685a;
+  background-color: #8190ff;
+  border-bottom: 2px solid #0a102d;
 }
 
 header#header.floating {
@@ -87,7 +87,7 @@ header#header #nav-wrapper ul.menu#menu-right li.menu-item a.icon:before {
 header#header #nav-wrapper ul.menu#menu-right li.menu-item a.icon .cart-count {
   position: absolute;
   right: -15px;
-  background: #afd275;
+  background: #0a102d;
   border-radius: 50%;
   height: 25px;
   width: 25px;
