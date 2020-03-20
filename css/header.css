@@ -1,5 +1,5 @@
 header#header {
-  height: 100px;
+  height: 60px;
   width: 100%;
   background-color: #fff;
   position: static;
@@ -10,6 +10,7 @@ header#header {
   z-index: 2;
   background-color: #8190ff;
   border-bottom: 2px solid #0a102d;
+  padding: 0 10%;
 }
 
 header#header.floating {
@@ -26,12 +27,12 @@ header#header .header-logo {
 }
 
 header#header .header-logo a {
-  text-decoration: underline;
   color: #fff;
   font-size: 40px;
   font-family: 'Varela Round';
   transform: skew(-4deg, -4deg);
   user-select: none;
+  letter-spacing: -2.5px;
 }
 
 @media screen and (max-width: 1050px) {

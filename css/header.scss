@@ -1,7 +1,7 @@
 @import 'var.scss';
 
 header#header {
-  height: 100px;
+  height: 60px;
   width: 100%;
   background-color: #fff;
   position: static;
@@ -12,6 +12,7 @@ header#header {
   z-index: 2;
   background-color: $accent1;
   border-bottom: 2px solid $accent2;
+  padding: 0 10%;
 
   &.floating {
     position: fixed;
@@ -26,12 +27,12 @@ header#header {
     justify-content: center;
 
     a {
-      text-decoration: underline;
       color: #fff;
       font-size: 40px;
       font-family: 'Varela Round';
       transform: skew(-4deg, -4deg);
       user-select: none;
+      letter-spacing: -2.5px;
 
       @media screen and (max-width: $break-tablet) {
         font-size: 20px;

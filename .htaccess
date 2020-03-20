@@ -12,8 +12,9 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php
 
-RewriteRule ^$ pages/home.php
-RewriteRule ^home$ pages/home.php
+RewriteRule ^$ pages/login.php
+RewriteRule ^home$ pages/login.php
+RewriteRule ^login$ pages/login.php
 RewriteRule ^documents$ pages/documents.php
 RewriteRule ^shares$ pages/shares.php
 

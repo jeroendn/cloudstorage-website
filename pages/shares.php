@@ -1,12 +1,11 @@
 <?php
-session_start();
-include_once __DIR__ . '../../php/dbconnection.php';
+include_once __DIR__ . '../../php/session.php';
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title>Shared with you</title>
     <meta name="description" content=""/>
     <?php include_once __DIR__ . '../../php/head.php' ?>
   </head>
@@ -15,7 +14,8 @@ include_once __DIR__ . '../../php/dbconnection.php';
     <!-- header -->
     <?php include_once __DIR__ . '../../php/header.php' ?>
 
-    <main id="" class="page-content">
+    <main id="shares" class="page-content">
+      shares
     </main>
 
     <!-- footer -->
