@@ -1,8 +1,8 @@
 <?php
 $servername = "remotemysql.com";
-$dBUsername = "sEdqkIHteW";
-$dBPassword = "za2hPp6sIR";
-$dBName = "sEdqkIHteW";
+$dBUsername = "JOi0EgLy4t";
+$dBPassword = "4z4RPRZYfv";
+$dBName = "JOi0EgLy4t";
 
 try {
 	$conn = new PDO("mysql:host=$servername;dbname=$dBName",$dBUsername,$dBPassword);
@@ -15,7 +15,7 @@ catch(PDOException $e)
 	$servername = "localhost";
 	$dBUsername = "root";
 	$dBPassword = "";
-	$dBName = "snoepwinkel";
+	$dBName = "cloudstorage";
 
 	try {
 		$conn = new PDO("mysql:host=$servername;dbname=$dBName",$dBUsername,$dBPassword);
