@@ -26,7 +26,7 @@ RewriteRule ^beheer/bestellingen$ admin/pages/orders.php
 
 DirectoryIndex index.php
 
-<FilesMatch "\.(ini|psd|log|sh|png)$">
+<FilesMatch "\.(ini|psd|log|sh)$">
 Order allow,deny
 Deny from all
 </FilesMatch>

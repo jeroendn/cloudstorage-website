@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Something went wrong!</title>
+    <title>Cloud Storage - Something went wrong!</title>
     <meta name="description" content=""/>
     <?php include_once __DIR__ . '../../php/head.php' ?>
   </head>

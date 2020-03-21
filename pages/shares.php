@@ -5,7 +5,7 @@ include_once __DIR__ . '../../php/session.php';
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Shared with you</title>
+    <title>Cloud Storage - Shared with you</title>
     <meta name="description" content=""/>
     <?php include_once __DIR__ . '../../php/head.php' ?>
   </head>

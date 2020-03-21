@@ -9,7 +9,7 @@ if (isset($_SESSION['user_id'])) {
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Login</title>
+    <title>Cloud Storage - Login</title>
     <meta name="description" content=""/>
     <?php include_once __DIR__ . '../../php/head.php' ?>
   </head>
