@@ -26,42 +26,31 @@ include_once __DIR__ . '../../php/session.php';
         foreach ($documents as $document) {
         ?>
         <div class="card mt-3 p-2">
-          <!-- <a href="php/getimg.php?img=file_icon.png" download>download</a> -->
           <div class="data">
-            <img src="php/getimg.php?img=sigma.png"/>
+            <img src="<?php
+            // get image from secure location
+            $doc_name = pathinfo($document['document_name']);
+            if ($doc_name['extension'] == 'png' || $doc_name['extension'] == 'jpg') {
+              echo 'php/getfile.php?file=' . $document['document_name'];
+            }
+            else {
+              echo 'design/no_image.png';
+            }
+            ?>"/>
             <p class="card-title"><?php echo $document['document_name'] ?></p>
-            <p class="file-size">1KB</p>
+            <p class="file-size"><?php file_size_calc($document['document_name']); ?></p>
             <p class="date"><?php echo date("d/M/Y H:i", strtotime($document['document_date'])) ?></p>
           </div>
           <div class="buttons">
-            <a href="#!" class="btn btn-primary">Download</a>
-            <a href="#!" class="btn btn-info">Share</a>
-            <a href="#!" class="btn btn-danger">Verwijder</a>
+            <a href="php/getfile.php?img=<?php echo $document['document_name'] ?>" class="btn btn-primary" download="<?php echo $document['document_name'] ?>">Download</a>
+            <a href="#!" class="btn btn-info btn-share">Share</a>
+            <a href="#!" class="btn btn-danger btn-delete">Verwijder</a>
           </div>
         </div>
         <?php
         }
         ?>
       </section>
-
-      <?php
-      echo $_SESSION['user_id'] . $_SESSION['user_role'] . $_SESSION['user_name'];
-      // get a img outside root folder
-      // $img = 'https://www.how2shout.com/wp-content/uploads/2018/03/download-Instagram-videos-using-a-Chrome-Plugin-on-PC.jpg';
-
-
-      // $root = dirname($_SERVER['DOCUMENT_ROOT']) . '/'; # Outside  the public web folder.
-
-      // require $root . 'foler/file.php';
-
-
-      // $imgString = realpath('/uploads/file_icon.png');
-      // $img = $root . 'uploads/file_icon.png';
-
-      // $img = file_get_contents($imgString);
-
-      // echo '<img src="' . $img . '">';
-      ?>
     </main>
 
     <!-- footer -->
