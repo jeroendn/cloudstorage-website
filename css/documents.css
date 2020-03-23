@@ -1,0 +1,46 @@
+#documents .card {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#documents .card .data {
+  flex: 0 0 55%;
+  max-width: 55%;
+  display: flex;
+}
+
+#documents .card .data img {
+  flex: 0 0 25%;
+  max-width: 25%;
+  height: 40px;
+  object-fit: cover;
+}
+
+#documents .card .data img:hover {
+  height: auto;
+  width: 100%;
+}
+
+#documents .card .data p {
+  padding-left: 5px;
+  flex: 0 0 25%;
+  max-width: 25%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+#documents .card .buttons {
+  flex: 0 0 45%;
+  max-width: 45%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#documents .card .buttons .btn {
+  display: flex;
+  align-items: center;
+  flex: 0 0 30%;
+  max-width: 30%;
+  justify-content: center;
+}
