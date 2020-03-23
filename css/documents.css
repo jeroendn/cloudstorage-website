@@ -16,7 +16,11 @@
   object-fit: cover;
 }
 
-#documents .card .data img:hover {
+#documents .card .data img:hover:not(:active) {
+  opacity: .7;
+}
+
+#documents .card .data img:active {
   height: auto;
   width: 100%;
 }

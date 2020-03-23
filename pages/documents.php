@@ -42,7 +42,7 @@ include_once __DIR__ . '../../php/session.php';
             <p class="date"><?php echo date("d/M/Y H:i", strtotime($document['document_date'])) ?></p>
           </div>
           <div class="buttons">
-            <a href="php/getfile.php?img=<?php echo $document['document_name'] ?>" class="btn btn-primary" download="<?php echo $document['document_name'] ?>">Download</a>
+            <a href="php/getfile.php?file=<?php echo $document['document_name'] ?>" class="btn btn-primary" download="<?php echo $document['document_name'] ?>">Download</a>
             <a href="#!" class="btn btn-info btn-share">Share</a>
             <a href="#!" class="btn btn-danger btn-delete">Verwijder</a>
           </div>

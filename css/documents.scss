@@ -14,7 +14,11 @@
         height: 40px;
         object-fit: cover;
 
-        &:hover {
+        &:hover:not(:active) {
+          opacity: .7;
+        }
+
+        &:active {
           height: auto;
           width: 100%;
         }
