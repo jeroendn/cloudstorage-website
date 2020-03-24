@@ -10,9 +10,9 @@ if ($_POST['mail'] != '' && $_POST['password'] != '') {
 	$stmt->execute();
 	$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-	if (password_verify($_POST['password'], $user['user_password']) && $user['user_role'] == 1) {
+	if (password_verify($_POST['password'], $user['user_password'])) {
 		$_SESSION['user_id'] = $user['user_id'];
-		$_SESSION['user_role'] = $user['user_role'];
 		$_SESSION['user_name'] = $user['user_name'];
+		$_SESSION['user_role_id'] = $user['user_role'];
 	}
 }

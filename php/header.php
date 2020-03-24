@@ -9,7 +9,7 @@
       <li class="menu-item"><a href="shares">Shares</a></li>
     </ul>
     <ul id="menu-right" class="menu">
-      <li class="menu-item"><a href="#!">Logout</a></li>
+      <li class="menu-item">Hello <?php echo $_SESSION['user_name']; ?>! <a href="#!">Logout</a></li>
     </ul>
   </nav>
 </header>
