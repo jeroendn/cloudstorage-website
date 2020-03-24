@@ -40,7 +40,48 @@ $(document).ready(function() {
     request.always(function () {
       inputs.prop("disabled", false);
     });
-
   });
+
+  // delete document
+  $('#documents .card .btn-delete').on('click', function() {
+    let document_id = $(this).parent().parent().find('input[type="hidden"]').val();
+
+    $.ajax({
+      url: "php/ajax/delete_document.php",
+      type: "post",
+      data: { document_id:document_id },
+      success: (json) => {
+        $(this).parent().parent().fadeOut();
+      }
+    });
+  });
+
+  // save a file to the directory's secret location
+  // $('#documents .card input[name="upload"]').on('click', function() {
+  //   // get the file
+  //   // let file = $(this).prev().prop('files')[0];
+  //   let file;
+  //
+  //   var reader = new FileReader();
+  //       reader.readAsText(file);
+  //       reader.onload = function(e) {
+  //           // alert(e.target.result);
+  //           file = btoa(unescape(encodeURIComponent(e.target.result)));
+  //       };
+  //   // get file name
+  //   let file_path = $(this).prev().val();
+  //   let file_name = file_path.substring(file_path.lastIndexOf("\\")+1);
+  //   console.log(file + file_path + file_name);
+  //
+  //   $.ajax({
+  //     url: "php/ajax/save_file.php",
+  //     type: "post",
+  //     data: { file:file, file_name:file_name },
+  //     success: (json) => {
+  //
+  //     }
+  //   });
+  // });
+
 
 });

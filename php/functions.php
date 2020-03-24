@@ -1,6 +1,16 @@
 <?php
-function file_size_calc($doc_name) {
-  $file_size = filesize($_SERVER['DOCUMENT_ROOT'] . '/uploads/' . str_replace(' ', '_', $_SESSION['user_name']) . $_SESSION['user_id'] . '/' . $doc_name);
+function get_file_dir($doc_name) {
+  $file_dir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . str_replace(' ', '_', $_SESSION['user_name']) . $_SESSION['user_id'] . '/' . $doc_name;
+  return $file_dir;
+}
+
+function file_size_calc($file_dir) {
+  if(!file_exists($file_dir)) {
+    echo 'No file found';
+    return;
+  }
+
+  $file_size = filesize($file_dir);
   echo file_size_format($file_size);
 }
 
