@@ -86,6 +86,18 @@ $(document).ready(function() {
     });
   });
 
+  // open share document tab
+  $('#documents .card .btn-share').on('click', function() {
+    let share = $(this).parent().parent().find('.share');
+    let visibility;
+
+    if (share.is(':visible')) { visibility = true; } else { visibility = false; }
+
+    $('.share').each(function() { $(this).slideUp('fast'); });
+
+    if (visibility) { share.slideUp('fast'); } else { share.slideDown('fast'); }
+  });
+
   // save a file to the directory's secret location
   // $('#documents .card input[name="upload"]').on('click', function() {
   //   // get the file

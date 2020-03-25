@@ -60,6 +60,30 @@ include_once __DIR__ . '../../php/session.php';
             <a href="#!" class="btn btn-danger btn-delete">Verwijder</a>
           </div>
           <input type="hidden" name="document_id" value="<?php echo $document['document_id'] ?>">
+          <div class="share mt-2">
+            <div class="current-share mt-2">
+            <?php
+            $sql = "SELECT user.user_id, user.user_mail FROM share INNER JOIN user ON share.user_id = user.user_id WHERE document_id=:document_id";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':document_id', $document['document_id'], PDO::PARAM_INT);
+            $stmt->execute();
+            $shares = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if (!empty($shares)) {
+              foreach ($shares as $share) {
+                ?><p><?php echo $share['user_mail']; ?></p><button class="btn btn-danger btn-remove-share">Remove share</button><?php
+              }
+            }
+            else {
+              ?><p>This file isn't shared yet.</p><?php
+            }
+            ?>
+            </div>
+            <div class="add-share mt-4">
+              <input class="form-control" type="text" placeholder="User mail">
+              <button class="btn btn-primary">Add share</button>
+            </div>
+          </div>
         </div>
         <?php
         }

@@ -67,3 +67,29 @@
   max-width: 30%;
   justify-content: center;
 }
+
+#documents .card .share {
+  flex: 0 0 100%;
+  display: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+#documents .card .share .current-share {
+  display: flex;
+}
+
+#documents .card .share .current-share button {
+  white-space: nowrap;
+}
+
+#documents .card .share .add-share {
+  display: flex;
+}
+
+#documents .card .share .add-share input {
+  margin-bottom: 0;
+}
+
+#documents .card .share .add-share button {
+  white-space: nowrap;
+}

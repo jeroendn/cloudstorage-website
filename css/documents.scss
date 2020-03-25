@@ -2,6 +2,9 @@
   .card {
     display: flex;
     flex-flow: row wrap;
+    // max-height: 200px;
+    // max-height: 100px;
+    // transition: max-height 1s;
 
     .data {
       flex: 0 0 55%;
@@ -67,6 +70,32 @@
         flex: 0 0 30%;
         max-width: 30%;
         justify-content: center;
+      }
+    }
+
+    .share {
+      flex: 0 0 100%;
+      display: none;
+      border-top: 1px solid rgba(0,0,0,.125);
+
+      .current-share {
+        display: flex;
+
+        button {
+          white-space: nowrap;
+        }
+      }
+
+      .add-share {
+        display: flex;
+
+        input {
+          margin-bottom: 0;
+        }
+
+        button {
+          white-space: nowrap;
+        }
       }
     }
   }
