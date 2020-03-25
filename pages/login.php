@@ -20,30 +20,30 @@ if (isset($_SESSION['user_id'])) {
 
     <main id="login" class="page-content">
       <div class="container">
-				<h4>Log in:</h4>
+				<h4 class="mt-5">Log in:</h4>
         <form id="login-form">
           <!-- email -->
-          <label class="text-light m-1" for="mail">E-mail:</label>
+          <!-- <label class="text-light" for="mail">E-mail:</label> -->
           <input class="form-control" type="text" name="mail" id="mail" placeholder="E-mail">
           <!-- password -->
-          <label class="text-light m-1" for="password">Password:</label>
+          <!-- <label class="text-light" for="password">Password:</label> -->
           <input class="form-control" type="password" name="password" id="password" placeholder="Password">
           <!-- submit -->
-          <input class="btn btn-primary bg-danger font-weight-bold m-1" type="submit" value="Log In">
+          <input class="btn btn-primary font-weight-bold" type="submit" value="Log In">
         </form>
-				<h4>Register:</h4>
+				<h4 class="mt-5">Register:</h4>
 				<form id="register-form">
 					<!-- username -->
-					<label class="text-light m-1" for="username">Username:</label>
+					<!-- <label class="text-light" for="username">Username:</label> -->
 					<input class="form-control" type="text" name="username" id="username" placeholder="Username">
 					<!-- email -->
-					<label class="text-light m-1" for="mail">E-mail:</label>
+					<!-- <label class="text-light" for="mail">E-mail:</label> -->
 					<input class="form-control" type="text" name="mail" id="mail" placeholder="E-mail">
 					<!-- password -->
-					<label class="text-light m-1" for="password">Password:</label>
+					<!-- <label class="text-light" for="password">Password:</label> -->
 					<input class="form-control" type="password" name="password" id="password" placeholder="Password">
 					<!-- submit -->
-					<input class="btn btn-primary bg-danger font-weight-bold m-1" type="submit" value="Sign Up">
+					<input class="btn btn-primary font-weight-bold" type="submit" value="Sign Up">
 				</form>
       </div>
     </main>

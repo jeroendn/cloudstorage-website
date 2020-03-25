@@ -7,7 +7,7 @@ $password = $_POST['password'];
 $name = $_POST['username'];
 $role = 1; // user
 
-if ($mail != '' && $password != '' && $name != '') {
+if ($mail != '' && $password != '' && $name != '' && filter_var($mail, FILTER_VALIDATE_EMAIL)) {
 
   $sql = "SELECT COUNT(user_mail) FROM user WHERE user_mail=:mail";
   $stmt = $conn->prepare($sql);

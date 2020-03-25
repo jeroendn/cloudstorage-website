@@ -5,8 +5,10 @@
 
   <nav id="nav-wrapper">
     <ul id="main-menu" class="menu">
+      <?php if (isset($_SESSION['user_name'])) {?>
       <li class="menu-item"><a href="documents">Documents</a></li>
       <li class="menu-item"><a href="shares">Shares</a></li>
+      <?php } ?>
     </ul>
     <ul id="menu-right" class="menu">
       <?php if (isset($_SESSION['user_name'])) {?><li class="menu-item">Hello <?php echo $_SESSION['user_name']; ?>! <a href="logout">Logout</a></li><?php } ?>
