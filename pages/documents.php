@@ -37,16 +37,19 @@ include_once __DIR__ . '../../php/session.php';
         ?>
         <div class="card mt-3 p-2">
           <div class="data">
-            <img src="<?php
+            <?php
             // get image from secure location
             $doc_name = pathinfo($document['document_name']);
-            if ($doc_name['extension'] == 'png' || $doc_name['extension'] == 'jpg') {
-              echo 'php/getfile.php?file=' . $document['document_name'];
+            if ($doc_name['extension'] == 'png' || $doc_name['extension'] == 'jpg' || $doc_name['extension'] == 'jpeg' || $doc_name['extension'] == 'gif' || $doc_name['extension'] == 'jfif') {
+              echo '<img src="php/getfile.php?file=' . $document['document_name'] . '"/>';
+            }
+            else if ($doc_name['extension'] == 'mp4') {
+              echo '<video src="php/getfile.php?file=' . $document['document_name'] . '" type="mp4" controls></video>';
             }
             else {
-              echo 'design/no_image.png';
+              echo '<img src="design/no_image.png"/>';
             }
-            ?>"/>
+            ?>
             <p class="card-title"><?php echo $document['document_name'] ?></p>
             <p class="file-size"><?php file_size_calc(get_file_dir($document['document_name'])); ?></p>
             <p class="date"><?php echo date("d/M/Y H:i", strtotime($document['document_date'])); ?></p>

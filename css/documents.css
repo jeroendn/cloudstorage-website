@@ -9,20 +9,26 @@
   display: flex;
 }
 
-#documents .card .data img {
+#documents .card .data img, #documents .card .data video {
   flex: 0 0 25%;
   max-width: 25%;
   height: 40px;
   object-fit: cover;
 }
 
-#documents .card .data img:hover:not(:active) {
+#documents .card .data img:hover:not(:active), #documents .card .data video:hover:not(:active) {
   opacity: .7;
 }
 
-#documents .card .data img:active {
+#documents .card .data img:active, #documents .card .data video:active {
   height: auto;
   width: 100%;
+}
+
+#documents .card .data video:hover {
+  height: auto;
+  width: 100%;
+  opacity: 1 !important;
 }
 
 #documents .card .data p {
