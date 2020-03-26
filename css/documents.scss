@@ -2,9 +2,6 @@
   .card {
     display: flex;
     flex-flow: row wrap;
-    // max-height: 200px;
-    // max-height: 100px;
-    // transition: max-height 1s;
 
     .data {
       flex: 0 0 55%;
@@ -16,6 +13,8 @@
         max-width: 25%;
         height: 40px;
         object-fit: cover;
+        user-select: none;
+        -webkit-user-drag: none;
 
         &:hover:not(:active) {
           opacity: .7;
@@ -79,7 +78,15 @@
       border-top: 1px solid rgba(0,0,0,.125);
 
       .current-share {
-        display: flex;
+        .container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        p {
+          margin-bottom: 0;
+        }
 
         button {
           white-space: nowrap;

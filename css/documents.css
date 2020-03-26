@@ -14,6 +14,8 @@
   max-width: 25%;
   height: 40px;
   object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 #documents .card .data img:hover:not(:active), #documents .card .data video:hover:not(:active) {
@@ -74,8 +76,14 @@
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-#documents .card .share .current-share {
+#documents .card .share .current-share .container {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#documents .card .share .current-share p {
+  margin-bottom: 0;
 }
 
 #documents .card .share .current-share button {

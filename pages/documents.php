@@ -71,7 +71,7 @@ include_once __DIR__ . '../../php/session.php';
 
             if (!empty($shares)) {
               foreach ($shares as $share) {
-                ?><p><?php echo $share['user_mail']; ?></p><button class="btn btn-danger btn-remove-share">Remove share</button><?php
+                ?><div class="container mb-1"><p><?php echo $share['user_mail']; ?></p><button class="btn btn-danger btn-remove-share">Remove share</button><input type="hidden" value="<?php echo $share['user_id'] ?>"></div><?php
               }
             }
             else {
