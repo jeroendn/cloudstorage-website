@@ -17,8 +17,6 @@ include_once __DIR__ . '../../php/session.php';
     <main id="documents" class="page-content">
       <section class="container mt-3">
         <div class="card">
-          <!-- <input type="file" name="file_upload" id="file_upload">
-          <input type="submit" value="Upload" name="upload" class="btn btn-primary"> -->
           <form action="php/ajax/save_file.php" method="post" enctype="multipart/form-data">
             <input type="file" name="file_upload" id="file_upload">
             <input type="submit" value="Upload" name="upload">

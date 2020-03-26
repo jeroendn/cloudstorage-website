@@ -122,8 +122,14 @@ $(document).ready(function() {
       url: "php/ajax/add_share.php",
       type: "post",
       data: { document_id:document_id, mail:mail },
-      success: (json) => {
-        
+      success: () => {
+        clear_errors();
+        $(this).closest('.share').find('.current-share').append('<div class="container mb-1"><p>' + mail + '</p></div>');
+        $(this).closest('.add-share').find('input[type="text"]').val('');
+      },
+      error: (error) => {
+        clear_errors();
+        $(this).closest('.share').find('.current-share').prepend('<div class="alert alert-warning mb-1">' + error.statusText + '</div>');
       }
     });
   });

@@ -19,11 +19,22 @@ if ($_POST['mail'] != '' && $_POST['document_id'] != '') {
   $share = $stmt->fetchAll();
 
   // create the share
-  if (empty($share) && !empty($user)) {
-    $sql = "INSERT INTO share (document_id, user_id) VALUES (:document_id, :user_id)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':document_id', $_POST['document_id'], PDO::PARAM_STR);
-    $stmt->bindParam(':user_id', $user[0]['user_id'], PDO::PARAM_INT);
-    $stmt->execute();
+  if (!empty($user[0]['user_id'])) {
+    if (empty($share)) {
+      $sql = "INSERT INTO share (document_id, user_id) VALUES (:document_id, :user_id)";
+      $stmt = $conn->prepare($sql);
+      $stmt->bindParam(':document_id', $_POST['document_id'], PDO::PARAM_STR);
+      $stmt->bindParam(':user_id', $user[0]['user_id'], PDO::PARAM_INT);
+      $stmt->execute();
+    }
+    else {
+      die(header("HTTP/1.0 404 File is already shared"));
+    }
   }
+  else {
+    die(header("HTTP/1.0 404 User doesn't exist"));
+  }
+}
+else {
+  die(header("HTTP/1.0 404 Empty fields"));
 }
