@@ -15,7 +15,72 @@ include_once __DIR__ . '../../php/session.php';
     <?php include_once __DIR__ . '../../php/header.php' ?>
 
     <main id="shares" class="page-content">
-      shares
+      <section class="container mt-3">
+        <?php
+        $sql = "SELECT * FROM (share INNER JOIN document ON share.document_id = document.document_id) WHERE share.user_id = '" . $_SESSION['user_id'] . "'";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $documents = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($documents as $document) {
+        ?>
+        <div class="card mt-3 p-2">
+          <div class="data">
+            <?php
+            // get image from secure location
+            $doc_name = pathinfo($document['document_name']);
+            if ($doc_name['extension'] == 'png' || $doc_name['extension'] == 'jpg' || $doc_name['extension'] == 'jpeg' || $doc_name['extension'] == 'gif' || $doc_name['extension'] == 'jfif') {
+              echo '<img src="php/getfile.php?file=' . $document['document_name'] . '"/>';
+            }
+            else if ($doc_name['extension'] == 'mp4') {
+              echo '<video src="php/getfile.php?file=' . $document['document_name'] . '" type="mp4" controls></video>';
+            }
+            else {
+              echo '<img src="design/no_image.png"/>';
+            }
+            ?>
+            <p class="card-title"><?php echo $document['document_name'] ?></p>
+            <p class="file-size"><?php file_size_calc(get_file_dir($document['document_name'])); ?></p>
+            <p class="date"><?php echo date("d/M/Y H:i", strtotime($document['document_date'])); ?></p>
+          </div>
+          <div class="buttons">
+            <a href="php/getfile.php?file=<?php echo $document['document_name'] ?>" class="btn btn-primary" download="<?php echo $document['document_name'] ?>">Download</a>
+            <a href="#!" class="btn btn-info btn-share">View shares</a>
+            <a href="#!" class="btn btn-danger btn-delete">Remove share ERROR</a>
+          </div>
+          <input type="hidden" name="document_id" value="<?php echo $document['document_id'] ?>">
+          <div class="share mt-2">
+            <h6 class="mt-2 mb-0">Shared by:</h6>
+            <div class="current-share">
+            <?php
+            $sql = "SELECT user.user_mail FROM user INNER JOIN document ON user.user_id = document.user_id WHERE document_id=:document_id";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':document_id', $document['document_id'], PDO::PARAM_INT);
+            $stmt->execute();
+            $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            ?><p><?php echo $user[0]['user_mail']; ?></p>
+            </div>
+            <h6 class="mt-2 mb-0">Shared to:</h6>
+            <div class="current-share">
+            <?php
+            $sql = "SELECT user.user_id, user.user_mail FROM share INNER JOIN user ON share.user_id = user.user_id WHERE document_id=:document_id";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':document_id', $document['document_id'], PDO::PARAM_INT);
+            $stmt->execute();
+            $shares = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($shares as $share) {
+              ?><div class="container mb-1"><p><?php echo $share['user_mail']; ?></p></div><?php
+            }
+            ?>
+            </div>
+          </div>
+        </div>
+        <?php
+        }
+        ?>
+      </section>
     </main>
 
     <!-- footer -->

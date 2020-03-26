@@ -54,12 +54,7 @@ include_once __DIR__ . '../../php/session.php';
           </div>
           <div class="buttons">
             <a href="php/getfile.php?file=<?php echo $document['document_name'] ?>" class="btn btn-primary" download="<?php echo $document['document_name'] ?>">Download</a>
-            <a href="#!" class="btn btn-info btn-share">Share</a>
-            <a href="#!" class="btn btn-danger btn-delete">Verwijder</a>
-          </div>
-          <input type="hidden" name="document_id" value="<?php echo $document['document_id'] ?>">
-          <div class="share mt-2">
-            <div class="current-share mt-2">
+            <a href="#!" class="btn btn-info btn-share">
             <?php
             $sql = "SELECT user.user_id, user.user_mail FROM share INNER JOIN user ON share.user_id = user.user_id WHERE document_id=:document_id";
             $stmt = $conn->prepare($sql);
@@ -67,6 +62,15 @@ include_once __DIR__ . '../../php/session.php';
             $stmt->execute();
             $shares = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+            if (empty($shares)) { ?>Share<?php } else { ?>Shares<?php }
+            ?>
+            </a>
+            <a href="#!" class="btn btn-danger btn-delete">Delete</a>
+          </div>
+          <input type="hidden" name="document_id" value="<?php echo $document['document_id'] ?>">
+          <div class="share mt-2">
+            <div class="current-share mt-2">
+            <?php
             if (!empty($shares)) {
               foreach ($shares as $share) {
                 ?><div class="container mb-1"><p><?php echo $share['user_mail']; ?></p><button class="btn btn-danger btn-remove-share">Remove share</button><input type="hidden" value="<?php echo $share['user_id'] ?>"></div><?php

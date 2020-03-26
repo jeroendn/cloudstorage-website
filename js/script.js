@@ -42,7 +42,7 @@ $(document).ready(function() {
     });
   });
 
-  // Register submit
+  // register submit
   $('#register-form').submit(function(e) {
     var request;
     e.preventDefault();
@@ -87,7 +87,7 @@ $(document).ready(function() {
   });
 
   // open share document tab
-  $('#documents .card .btn-share').on('click', function() {
+  $('#documents .card .btn-share, #shares .card .btn-share').on('click', function() {
     let share = $(this).parent().parent().find('.share');
     let visibility;
 
