@@ -43,6 +43,7 @@
 #documents .card .data p.card-title, #shares .card .data p.card-title {
   flex: 0 0 25%;
   max-width: 25%;
+  word-break: break-all;
 }
 
 #documents .card .data p.file-size, #shares .card .data p.file-size {

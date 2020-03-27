@@ -70,6 +70,16 @@ header#header #nav-wrapper ul.menu li.menu-item a:hover {
   opacity: 0.7;
 }
 
+header#header #nav-wrapper ul.menu > p {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  color: #fff;
+  font-family: 'Varela Round';
+  letter-spacing: -0.5px;
+}
+
 header#header #nav-wrapper ul.menu#menu-right {
   margin-right: 50px;
 }

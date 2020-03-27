@@ -69,6 +69,16 @@ header#header {
         }
       }
 
+      > p {
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        color: #fff;
+        font-family: 'Varela Round';
+        letter-spacing: -0.5px;
+      }
+
       &#menu-right {
         margin-right: 50px;
 

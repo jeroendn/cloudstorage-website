@@ -14,6 +14,5 @@ if ($_POST['mail'] != '' && $_POST['password'] != '') {
 		$_SESSION['user_id'] = $user['user_id'];
 		$_SESSION['user_name'] = $user['user_name'];
 		$_SESSION['user_role_id'] = $user['user_role'];
-		$_SESSION['user_mail'] = $user['user_mail'];
 	}
 }

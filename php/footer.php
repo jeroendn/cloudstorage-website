@@ -6,7 +6,7 @@
 
   <div id="bottom-bar">
     <p>Cloud Storage</p>
-    <a href="beheer/dashboard">Admin</a>
+    <a href="#!"></a>
   </div>
 
 </footer>
