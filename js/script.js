@@ -113,6 +113,20 @@ $(document).ready(function() {
     });
   });
 
+  // remove a share from other user
+  $('#shares .card .btn-delete').on('click', function() {
+    let document_id = $(this).closest('.card').find('input[name="document_id"]').val();
+
+    $.ajax({
+      url: "php/ajax/remove_shared_file.php",
+      type: "post",
+      data: { document_id:document_id },
+      success: (json) => {
+        $(this).closest('.card').fadeOut();
+      }
+    });
+  });
+
   // give user access to a file through sharing the document
   $('#documents .card .add-share .btn').on('click', function() {
     let document_id = $(this).closest('.card').find('input[type="hidden"]').val();

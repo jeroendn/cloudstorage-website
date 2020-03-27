@@ -22,8 +22,6 @@ include_once __DIR__ . '../../php/session.php';
         $stmt->execute();
         $documents = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $i = 0;
-
         foreach ($documents as $document) {
 
           // !!
@@ -35,8 +33,6 @@ include_once __DIR__ . '../../php/session.php';
           $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
           $user_id = $user[0]['user_id'];
           $username = $user[0]['user_name'];
-          // echo $username . $user_id . 'index' . $i;
-          // print_r($user);
 
           // !!
 
@@ -70,10 +66,8 @@ include_once __DIR__ . '../../php/session.php';
           <div class="share mt-2">
             <h6 class="mt-2 mb-0">Shared by:</h6>
             <div class="current-share">
-            <?php
-
-
-            ?><p><?php echo $user[0]['user_mail']; ?></p>
+            <p><?php echo $user[0]['user_mail']; ?></p>
+            <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
             </div>
             <h6 class="mt-2 mb-0">Shared to:</h6>
             <div class="current-share">
@@ -92,7 +86,6 @@ include_once __DIR__ . '../../php/session.php';
           </div>
         </div>
         <?php
-        $i = $i + 1;
         }
         ?>
       </section>
