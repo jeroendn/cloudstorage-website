@@ -51,7 +51,7 @@ include_once __DIR__ . '../../php/session.php';
               // echo '<img src="' . get_shared_file($document['document_name'], $user[0]['user_name'], $user[0]['user_id']) . '"/>';
             }
             else if ($doc_name['extension'] == 'mp4') {
-              echo '<video src="php/getsharedfile.php?file=' . $document['document_name'] . '&user=' . str_replace(' ', '_', $username) . $user_id . '" type="mp4" controls></video>';
+              echo '<video src="php/getsharedfile.php?file=' . $document['document_name'] . '&user=' . str_replace(' ', '_', $username)  . '&user_id=' . $user_id . '" type="mp4" controls></video>';
             }
             else {
               echo '<img src="design/no_image.png"/>';
@@ -62,7 +62,7 @@ include_once __DIR__ . '../../php/session.php';
             <p class="date"><?php echo date("d/M/Y H:i", strtotime($document['document_date'])); ?></p>
           </div>
           <div class="buttons">
-            <a href="php/getsharedfile.php?file=<?php echo $document['document_name'] . '&user=' . str_replace(' ', '_', $username) . $user_id ?>" class="btn btn-primary" download="<?php echo $document['document_name'] ?>">Download</a>
+            <a href="php/getsharedfile.php?file=<?php echo $document['document_name'] . '&user=' . str_replace(' ', '_', $username) . '&user_id=' . $user_id ?>" class="btn btn-primary" download="<?php echo $document['document_name'] ?>">Download</a>
             <a href="#!" class="btn btn-info btn-share">View shares</a>
             <a href="#!" class="btn btn-danger btn-delete">Remove share</a>
           </div>
