@@ -22,7 +22,24 @@ include_once __DIR__ . '../../php/session.php';
         $stmt->execute();
         $documents = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        $i = 0;
+
         foreach ($documents as $document) {
+
+          // !!
+
+          $sql = "SELECT user.user_mail, user.user_id, user.user_name FROM user INNER JOIN document ON user.user_id = document.user_id WHERE document_id=:document_id";
+          $stmt = $conn->prepare($sql);
+          $stmt->bindParam(':document_id', $document['document_id'], PDO::PARAM_INT);
+          $stmt->execute();
+          $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+          $user_id = $user[0]['user_id'];
+          $username = $user[0]['user_name'];
+          // echo $username . $user_id . 'index' . $i;
+          // print_r($user);
+
+          // !!
+
         ?>
         <div class="card mt-3 p-2">
           <div class="data">
@@ -30,34 +47,31 @@ include_once __DIR__ . '../../php/session.php';
             // get image from secure location
             $doc_name = pathinfo($document['document_name']);
             if ($doc_name['extension'] == 'png' || $doc_name['extension'] == 'jpg' || $doc_name['extension'] == 'jpeg' || $doc_name['extension'] == 'gif' || $doc_name['extension'] == 'jfif') {
-              echo '<img src="php/getfile.php?file=' . $document['document_name'] . '"/>';
+              echo '<img src="php/getsharedfile.php?file=' . $document['document_name'] . '&user=' . str_replace(' ', '_', $username) . '&user_id=' . $user_id . '"/>';
+              // echo '<img src="' . get_shared_file($document['document_name'], $user[0]['user_name'], $user[0]['user_id']) . '"/>';
             }
             else if ($doc_name['extension'] == 'mp4') {
-              echo '<video src="php/getfile.php?file=' . $document['document_name'] . '" type="mp4" controls></video>';
+              echo '<video src="php/getsharedfile.php?file=' . $document['document_name'] . '&user=' . str_replace(' ', '_', $username) . $user_id . '" type="mp4" controls></video>';
             }
             else {
               echo '<img src="design/no_image.png"/>';
             }
             ?>
             <p class="card-title"><?php echo $document['document_name'] ?></p>
-            <p class="file-size"><?php file_size_calc(get_file_dir($document['document_name'])); ?></p>
+            <p class="file-size"><?php file_size_calc(get_shared_file_dir($username, $user_id, $document['document_name'])); ?></p>
             <p class="date"><?php echo date("d/M/Y H:i", strtotime($document['document_date'])); ?></p>
           </div>
           <div class="buttons">
-            <a href="php/getfile.php?file=<?php echo $document['document_name'] ?>" class="btn btn-primary" download="<?php echo $document['document_name'] ?>">Download</a>
+            <a href="php/getsharedfile.php?file=<?php echo $document['document_name'] . '&user=' . str_replace(' ', '_', $username) . $user_id ?>" class="btn btn-primary" download="<?php echo $document['document_name'] ?>">Download</a>
             <a href="#!" class="btn btn-info btn-share">View shares</a>
-            <a href="#!" class="btn btn-danger btn-delete">Remove share ERROR</a>
+            <a href="#!" class="btn btn-danger btn-delete">Remove share</a>
           </div>
           <input type="hidden" name="document_id" value="<?php echo $document['document_id'] ?>">
           <div class="share mt-2">
             <h6 class="mt-2 mb-0">Shared by:</h6>
             <div class="current-share">
             <?php
-            $sql = "SELECT user.user_mail FROM user INNER JOIN document ON user.user_id = document.user_id WHERE document_id=:document_id";
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':document_id', $document['document_id'], PDO::PARAM_INT);
-            $stmt->execute();
-            $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
             ?><p><?php echo $user[0]['user_mail']; ?></p>
             </div>
@@ -78,6 +92,7 @@ include_once __DIR__ . '../../php/session.php';
           </div>
         </div>
         <?php
+        $i = $i + 1;
         }
         ?>
       </section>

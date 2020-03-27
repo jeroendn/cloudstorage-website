@@ -4,7 +4,7 @@ include_once '../../php/dbconnection.php';
 
 if ($_POST['mail'] != '' && $_POST['password'] != '') {
 
-	$sql = "SELECT user_id, user_password, user_role, user_name FROM user WHERE user_mail=:mail";
+	$sql = "SELECT user_id, user_password, user_role, user_name, user_mail FROM user WHERE user_mail=:mail";
 	$stmt = $conn->prepare($sql);
 	$stmt->bindParam(':mail', $_POST['mail'], PDO::PARAM_STR);
 	$stmt->execute();
@@ -14,5 +14,6 @@ if ($_POST['mail'] != '' && $_POST['password'] != '') {
 		$_SESSION['user_id'] = $user['user_id'];
 		$_SESSION['user_name'] = $user['user_name'];
 		$_SESSION['user_role_id'] = $user['user_role'];
+		$_SESSION['user_mail'] = $user['user_mail'];
 	}
 }

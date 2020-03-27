@@ -7,8 +7,6 @@ $user = str_replace(' ', '_', $_SESSION['user_name']) . $_SESSION['user_id'];
 $file_dir = $dir . $user . '/' . $file;
 
 if($file !== false and file_exists($file_dir)) {
-  // if file is img, this will let it display
-   // header('Content-Type: image/jpeg');
    readfile($file_dir);
    exit;
 }

@@ -28,7 +28,7 @@ if ($_POST['mail'] != '' && $_POST['document_id'] != '') {
       $stmt->execute();
     }
     else {
-      die(header("HTTP/1.0 404 File is already shared"));
+      die(header("HTTP/1.0 400 File is already shared"));
     }
   }
   else {
@@ -36,5 +36,5 @@ if ($_POST['mail'] != '' && $_POST['document_id'] != '') {
   }
 }
 else {
-  die(header("HTTP/1.0 404 Empty fields"));
+  die(header("HTTP/1.0 400 Empty field"));
 }
