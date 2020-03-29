@@ -72,6 +72,19 @@ $(document).ready(function() {
     });
   });
 
+  // check if user is active
+  // function session_active() {
+  //   $.ajax({
+  //     url: "php/ajax/session_activity.php",
+  //     type: "post",
+  //     success: () => {
+  //       window.location.href = 'login';
+  //     }
+  //   });
+  //   setInterval(session_active(), 5000);
+  // };
+  // session_active();
+
   // delete document
   $('#documents .card .btn-delete').on('click', function() {
     let document_id = $(this).parent().parent().find('input[type="hidden"]').val();

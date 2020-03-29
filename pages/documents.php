@@ -62,7 +62,7 @@ include_once __DIR__ . '../../php/session.php';
             $stmt->execute();
             $shares = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            if (empty($shares)) { ?>Share<?php } else { ?>Shares<?php }
+            if (empty($shares)) { ?>Share<?php } else { ?>View shares<?php }
             ?>
             </a>
             <a href="#!" class="btn btn-danger btn-delete">Delete</a>

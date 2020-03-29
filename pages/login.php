@@ -19,8 +19,8 @@ if (isset($_SESSION['user_id'])) {
     <?php include_once __DIR__ . '../../php/header.php' ?>
 
     <main id="login" class="page-content">
-      <div class="container">
-				<h4 class="mt-5">Log in:</h4>
+      <div class="container card mt-5 p-5">
+				<h4>Log in:</h4>
         <form id="login-form">
           <!-- email -->
           <!-- <label class="text-light" for="mail">E-mail:</label> -->

@@ -12,7 +12,15 @@ header#header {
   z-index: 2;
   background-color: $accent1;
   border-bottom: 2px solid $accent2;
-  padding: 0 10%;
+  padding: 0 20%;
+
+  @media screen and (max-width: 1500px) {
+    padding: 0 5%;
+  }
+
+  @media screen and (max-width: $break-mobile) {
+    padding: 0;
+  }
 
   &.floating {
     position: fixed;
@@ -20,11 +28,15 @@ header#header {
   }
 
   .header-logo {
-    flex: 0 0 20%;
-    max-width: 20%;
+    flex: 0 0 30%;
+    max-width: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: $break-mobile) {
+      display: none;
+    }
 
     a {
       color: #fff;
@@ -44,8 +56,13 @@ header#header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex: 0 0 80%;
-    max-width: 80%;
+    flex: 0 0 70%;
+    max-width: 70%;
+
+    @media screen and (max-width: $break-mobile) {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
 
     ul.menu {
       list-style: none;
@@ -77,6 +94,10 @@ header#header {
         color: #fff;
         font-family: 'Varela Round';
         letter-spacing: -0.5px;
+
+        @media screen and (max-width: $break-tablet) {
+          display: none;
+        }
       }
 
       &#menu-right {

@@ -9,6 +9,13 @@
   display: flex;
 }
 
+@media screen and (max-width: 778px) {
+  #documents .card .data, #shares .card .data {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
 #documents .card .data img, #documents .card .data video, #shares .card .data img, #shares .card .data video {
   flex: 0 0 25%;
   max-width: 25%;
@@ -61,6 +68,14 @@
   max-width: 45%;
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 778px) {
+  #documents .card .buttons, #shares .card .buttons {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 10px;
+  }
 }
 
 #documents .card .buttons .btn, #shares .card .buttons .btn {
