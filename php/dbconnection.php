@@ -11,10 +11,10 @@ try {
 catch(PDOException $e) {
   ?><p style="display: block; background: #f00; color: #fff; text-align: center; margin-bottom: 0;">Couldn't connenct to database: <?php echo $e->getMessage();?><br>Connecting to a local database...</p><?php
 
-	$servername = "localhost";
-	$dBUsername = "root";
-	$dBPassword = "";
-	$dBName = "cloudstorage";
+	// $servername = "localhost";
+	// $dBUsername = "root";
+	// $dBPassword = "";
+	// $dBName = "cloudstorage";
 
 	try {
 		$conn = new PDO("mysql:host=$servername;dbname=$dBName",$dBUsername,$dBPassword);

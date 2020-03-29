@@ -40,14 +40,15 @@ include_once __DIR__ . '../../php/session.php';
         <div class="card mt-3 p-2">
           <div class="data">
             <?php
+            $url_data = htmlspecialchars('file=' . $document['document_name'] . '&user=' . str_replace(' ', '_', $username) . '&user_id=' . $user_id);
             // get image from secure location
             $doc_name = pathinfo($document['document_name']);
             if ($doc_name['extension'] == 'png' || $doc_name['extension'] == 'jpg' || $doc_name['extension'] == 'jpeg' || $doc_name['extension'] == 'gif' || $doc_name['extension'] == 'jfif') {
-              echo '<img src="php/getsharedfile.php?file=' . $document['document_name'] . '&user=' . str_replace(' ', '_', $username) . '&user_id=' . $user_id . '"/>';
+              echo '<img src="php/getsharedfile.php?' . $url_data . '"/>';
               // echo '<img src="' . get_shared_file($document['document_name'], $user[0]['user_name'], $user[0]['user_id']) . '"/>';
             }
             else if ($doc_name['extension'] == 'mp4') {
-              echo '<video src="php/getsharedfile.php?file=' . $document['document_name'] . '&user=' . str_replace(' ', '_', $username)  . '&user_id=' . $user_id . '" type="mp4" controls></video>';
+              echo '<video src="php/getsharedfile.php?' . $url_data . '" type="mp4" controls></video>';
             }
             else {
               echo '<img src="design/no_image.png"/>';
@@ -58,7 +59,7 @@ include_once __DIR__ . '../../php/session.php';
             <p class="date"><?php echo date("d/M/Y H:i", strtotime($document['document_date'])); ?></p>
           </div>
           <div class="buttons">
-            <a href="php/getsharedfile.php?file=<?php echo $document['document_name'] . '&user=' . str_replace(' ', '_', $username) . '&user_id=' . $user_id ?>" class="btn btn-primary" download="<?php echo $document['document_name'] ?>">Download</a>
+            <a href="php/getsharedfile.php?<?php echo $url_data ?>" class="btn btn-primary" download="<?php echo htmlspecialchars($document['document_name']) ?>">Download</a>
             <a href="#!" class="btn btn-info btn-share">View shares</a>
             <a href="#!" class="btn btn-danger btn-delete">Remove share</a>
           </div>
@@ -66,7 +67,7 @@ include_once __DIR__ . '../../php/session.php';
           <div class="share mt-2">
             <h6 class="mt-2 mb-0">Shared by:</h6>
             <div class="current-share">
-            <p><?php echo $user[0]['user_mail']; ?></p>
+            <p><?php echo htmlspecialchars($user[0]['user_mail']); ?></p>
             <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
             </div>
             <h6 class="mt-2 mb-0">Shared to:</h6>
@@ -79,7 +80,7 @@ include_once __DIR__ . '../../php/session.php';
             $shares = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($shares as $share) {
-              ?><div class="container mb-1"><p><?php echo $share['user_mail']; ?></p></div><?php
+              ?><div class="container mb-1"><p><?php echo htmlspecialchars($share['user_mail']); ?></p></div><?php
             }
             ?>
             </div>

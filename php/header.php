@@ -11,7 +11,7 @@
       <?php } ?>
     </ul>
     <ul id="menu-right" class="menu">
-      <?php if (isset($_SESSION['user_name'])) {?><p class="menu-item">Hello <?php echo $_SESSION['user_name']; ?>!</p><?php } ?>
+      <?php if (isset($_SESSION['user_name'])) {?><p class="menu-item">Hello <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p><?php } ?>
       <?php if (isset($_SESSION['user_role_id']) && $_SESSION['user_role_id'] == 2) {?><li class="menu-item"><a href="admin">Admin</a></li><?php } ?>
       <li class="menu-item"><a href="logout">Logout</a></li>
     </ul>

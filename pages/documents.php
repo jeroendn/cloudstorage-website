@@ -18,8 +18,8 @@ include_once __DIR__ . '../../php/session.php';
       <section class="container mt-3">
         <div class="card p-2">
           <form action="php/ajax/save_file.php" method="post" enctype="multipart/form-data">
-            <input type="file" name="file_upload" id="file_upload">
-            <input type="submit" value="Upload" name="upload">
+            <input type="file" name="file_upload" id="file_upload" class="btn btn-primary">
+            <input type="submit" value="Upload" name="upload" class="btn btn-primary">
           </form>
         </div>
       </section>
@@ -39,21 +39,21 @@ include_once __DIR__ . '../../php/session.php';
             // get image from secure location
             $doc_name = pathinfo($document['document_name']);
             if ($doc_name['extension'] == 'png' || $doc_name['extension'] == 'jpg' || $doc_name['extension'] == 'jpeg' || $doc_name['extension'] == 'gif' || $doc_name['extension'] == 'jfif') {
-              echo '<img src="php/getfile.php?file=' . $document['document_name'] . '"/>';
+              echo '<img src="php/getfile.php?file=' . htmlspecialchars($document['document_name']) . '"/>';
             }
             else if ($doc_name['extension'] == 'mp4') {
-              echo '<video src="php/getfile.php?file=' . $document['document_name'] . '" type="mp4" controls></video>';
+              echo '<video src="php/getfile.php?file=' . htmlspecialchars($document['document_name']) . '" type="mp4" controls></video>';
             }
             else {
               echo '<img src="design/no_image.png"/>';
             }
             ?>
-            <p class="card-title"><?php echo $document['document_name'] ?></p>
+            <p class="card-title"><?php echo htmlspecialchars($document['document_name']) ?></p>
             <p class="file-size"><?php file_size_calc(get_file_dir($document['document_name'])); ?></p>
             <p class="date"><?php echo date("d/M/Y H:i", strtotime($document['document_date'])); ?></p>
           </div>
           <div class="buttons">
-            <a href="php/getfile.php?file=<?php echo $document['document_name'] ?>" class="btn btn-primary" download="<?php echo $document['document_name'] ?>">Download</a>
+            <a href="php/getfile.php?file=<?php echo htmlspecialchars($document['document_name']) ?>" class="btn btn-primary" download="<?php echo htmlspecialchars($document['document_name']) ?>">Download</a>
             <a href="#!" class="btn btn-info btn-share">
             <?php
             $sql = "SELECT user.user_id, user.user_mail FROM share INNER JOIN user ON share.user_id = user.user_id WHERE document_id=:document_id";
@@ -73,7 +73,7 @@ include_once __DIR__ . '../../php/session.php';
             <?php
             if (!empty($shares)) {
               foreach ($shares as $share) {
-                ?><div class="container mb-1"><p><?php echo $share['user_mail']; ?></p><button class="btn btn-danger btn-remove-share">Remove share</button><input type="hidden" value="<?php echo $share['user_id'] ?>"></div><?php
+                ?><div class="container mb-1"><p><?php echo htmlspecialchars($share['user_mail']); ?></p><button class="btn btn-danger btn-remove-share">Remove share</button><input type="hidden" value="<?php echo $share['user_id'] ?>"></div><?php
               }
             }
             else {
