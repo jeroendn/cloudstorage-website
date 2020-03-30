@@ -5,7 +5,7 @@
   </div>
 
   <div id="bottom-bar">
-    <p>Cloud Storage</p>
+    <p>2020 Cloud Storage&#169;</p>
     <a href="#!"></a>
   </div>
 

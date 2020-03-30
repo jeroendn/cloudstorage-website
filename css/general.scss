@@ -8,6 +8,13 @@ html, body {
   scroll-behavior: smooth;
 }
 
+main.page-content {
+  min-height: 50vh;
+  background-image: url('../design/cloud.svg');
+  background-repeat: no-repeat;
+  background-position: 10% 50%;
+}
+
 .content-box {
   background-color: #fff;
   border-radius: 5px;

@@ -15,7 +15,24 @@ include_once '../php/session.php';
     <?php include_once  __DIR__ . '../../php/header.php' ?>
 
     <main id="dashboard" class="page-content">
-      Statistics
+      <section class="container mt-5">
+        <h6>Statistics</h6>
+        <div class="card mt-3 p-2">
+
+        </div>
+        <div class="card mt-3 p-2">
+
+        </div>
+        <div class="card mt-3 p-2">
+
+        </div>
+        <div class="card mt-3 p-2">
+
+        </div>
+        <div class="card mt-3 p-2">
+
+        </div>
+      </section>
     </main>
 
     <!-- footer -->

@@ -80,15 +80,33 @@ header#header #nav-wrapper ul.menu {
   margin-bottom: 0;
 }
 
+@media screen and (max-width: 778px) {
+  header#header #nav-wrapper ul.menu {
+    padding-left: 20px;
+  }
+}
+
 header#header #nav-wrapper ul.menu li.menu-item:not(:last-child) {
   margin-right: 30px;
 }
 
+@media screen and (max-width: 778px) {
+  header#header #nav-wrapper ul.menu li.menu-item:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
 header#header #nav-wrapper ul.menu li.menu-item a {
   color: #fff;
-  font-size: 25px;
+  font-size: 23px;
   font-weight: bold;
   font-family: 'Varela Round';
+}
+
+@media screen and (max-width: 778px) {
+  header#header #nav-wrapper ul.menu li.menu-item a {
+    font-size: 20px;
+  }
 }
 
 header#header #nav-wrapper ul.menu li.menu-item a:hover {
@@ -113,6 +131,12 @@ header#header #nav-wrapper ul.menu > p {
 
 header#header #nav-wrapper ul.menu#menu-right {
   margin-right: 50px;
+}
+
+@media screen and (max-width: 778px) {
+  header#header #nav-wrapper ul.menu#menu-right {
+    margin-right: 20px;
+  }
 }
 
 header#header #nav-wrapper ul.menu#menu-right li.menu-item a.icon {
