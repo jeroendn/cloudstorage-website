@@ -1,2 +1,2 @@
 <?php
-header("Location: ../beheer/login");
+header("Location: ../dashboard");

@@ -19,7 +19,10 @@ if (isset($_SESSION['user_id'])) {
     <?php include_once __DIR__ . '../../php/header.php' ?>
 
     <main id="login" class="page-content">
-      <div class="container card mt-5 p-5">
+			<div class="container card mt-5 pt-3 pr-5 pb-2 pl-5">
+				<p>Welcome to the Cloud Storage system. Create a account to start using this free online service and start sharing your files to other users.</p>
+			</div>
+      <div class="container card mt-4 p-5">
 				<h4>Log in:</h4>
         <form id="login-form">
           <!-- email -->
