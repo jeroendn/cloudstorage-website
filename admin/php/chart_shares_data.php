@@ -3,10 +3,10 @@ session_start();
 include_once '../../php/dbconnection.php';
 
 // get the last X months
-$month = time();
+$time = time();
 for ($i = 1; $i <= 12; $i++) {
-  $month = strtotime('last month', $month);
-  $months[] = date("r", $month);
+  $time = strtotime('last month', $time);
+  $months[] = date("r", $time);
 }
 
 // flip the array to display from old to new

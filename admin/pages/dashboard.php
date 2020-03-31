@@ -21,7 +21,7 @@ include_once '../php/session.php';
           <div id="shares_chart"></div>
         </div>
         <div class="card mt-3 p-2">
-          <div id="chart"></div>
+          <div id="file_upload_chart"></div>
         </div>
         <div class="card mt-3 p-2">
           <div id=""></div>
