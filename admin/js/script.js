@@ -10,8 +10,6 @@ $(document).ready(function() {
       dataType : 'json',
       success : (db_data) =>
       {
-        $('main').append(db_data[0].march);
-
         var dataArray = [['Month', 'Shares']];
 
         // convert json data to a datatable for google API
@@ -23,7 +21,7 @@ $(document).ready(function() {
 
         var data = google.visualization.arrayToDataTable(dataArray);
 
-        var options = {'title':'My Average Day', 'width':1000, 'height':350};
+        var options = {'title':'Total shares per month', 'width':1000, 'height':350, 'colors':['#8190ff']};
         var chart = new google.visualization.ColumnChart(document.getElementById('shares_chart'));
         chart.draw(data, options);
       }

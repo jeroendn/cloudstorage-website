@@ -24,13 +24,13 @@ include_once '../php/session.php';
           <div id="chart"></div>
         </div>
         <div class="card mt-3 p-2">
-
+          <div id=""></div>
         </div>
         <div class="card mt-3 p-2">
-
+          <div id=""></div>
         </div>
         <div class="card mt-3 p-2">
-
+          <div id=""></div>
         </div>
       </section>
     </main>

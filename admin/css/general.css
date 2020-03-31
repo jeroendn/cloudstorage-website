@@ -13,6 +13,15 @@ main.page-content {
   overflow: overlay;
 }
 
+.card > div {
+  background-image: url("../media/cloud_loader.gif");
+  height: 100%;
+  min-height: 200px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .card > div > div {
   display: flex;
   justify-content: center;
