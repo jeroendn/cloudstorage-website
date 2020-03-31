@@ -3,6 +3,10 @@ header#header {
   padding-right: 10%;
   padding-left: 10%;
   background-color: #333;
+  background-image: url("../../design/cloud.svg");
+  background-repeat: no-repeat;
+  background-position: 10%;
+  background-size: contain;
 }
 
 header#header #nav-wrapper {

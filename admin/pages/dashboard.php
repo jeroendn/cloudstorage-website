@@ -16,12 +16,12 @@ include_once '../php/session.php';
 
     <main id="dashboard" class="page-content">
       <section class="container mt-5">
-        <h6>Statistics</h6>
+        <h6>Shares</h6>
         <div class="card mt-3 p-2">
-
+          <div id="shares_chart"></div>
         </div>
         <div class="card mt-3 p-2">
-
+          <div id="chart"></div>
         </div>
         <div class="card mt-3 p-2">
 

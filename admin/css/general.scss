@@ -7,3 +7,13 @@ html, body {
 main.page-content {
   min-height: 50vh;
 }
+
+.card {
+  overflow-x: scroll;
+  overflow: overlay;
+
+  > div > div {
+    display: flex;
+    justify-content: center;
+  }
+}
