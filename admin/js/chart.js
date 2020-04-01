@@ -3,6 +3,7 @@ $(document).ready(function() {
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(shares_chart);
   google.charts.setOnLoadCallback(file_upload_chart);
+  google.charts.setOnLoadCallback(total_users_and_files_chart);
 
   function shares_chart() {
     $.ajax({
@@ -22,7 +23,7 @@ $(document).ready(function() {
 
         var data = google.visualization.arrayToDataTable(dataArray);
 
-        var options = {'title':'Total shares per month', 'width':1000, 'height':350, 'colors':['#8190ff']};
+        var options = {'title':'Shares per month', 'width':1000, 'height':350, 'colors':['#8190ff']};
         var chart = new google.visualization.ColumnChart(document.getElementById('shares_chart'));
         chart.draw(data, options);
       }
@@ -47,8 +48,37 @@ $(document).ready(function() {
 
         var data = google.visualization.arrayToDataTable(dataArray);
 
-        var options = {'title':'Total uploads per week', 'width':1000, 'height':350, 'colors':['#8190ff']};
+        var options = {'title':'Uploads per week', 'width':1000, 'height':350, 'colors':['#8190ff']};
         var chart = new google.visualization.ColumnChart(document.getElementById('file_upload_chart'));
+        chart.draw(data, options);
+      }
+    });
+  }
+
+  function total_users_and_files_chart() {
+    $.ajax({
+      type : 'post',
+      url : 'admin/php/chart_users_and_files.php',
+      dataType : 'json',
+      success : (db_data) =>
+      {
+        console.log(db_data);
+
+        var dataArray = [['Month', 'Users', 'Files']];
+
+        // convert json data to a datatable for google API
+        db_data.forEach(function (obj) {
+          for (let [key, value] of Object.entries(obj)) {
+            dataArray.push([key, value.user, value.file]);
+          }
+        });
+
+        console.log(dataArray);
+
+        var data = google.visualization.arrayToDataTable(dataArray);
+
+        var options = {'title':'Total users & files', 'width':1000, 'height':350, 'colors':['#8190ff','#0a102d']};
+        var chart = new google.visualization.LineChart(document.getElementById('total_users_and_files_chart'));
         chart.draw(data, options);
       }
     });
