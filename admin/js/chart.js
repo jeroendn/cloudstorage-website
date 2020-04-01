@@ -4,6 +4,7 @@ $(document).ready(function() {
   google.charts.setOnLoadCallback(shares_chart);
   google.charts.setOnLoadCallback(file_upload_chart);
   google.charts.setOnLoadCallback(total_users_and_files_chart);
+  google.charts.setOnLoadCallback(extensions_chart);
 
   function shares_chart() {
     $.ajax({
@@ -62,8 +63,6 @@ $(document).ready(function() {
       dataType : 'json',
       success : (db_data) =>
       {
-        console.log(db_data);
-
         var dataArray = [['Month', 'Users', 'Files']];
 
         // convert json data to a datatable for google API
@@ -73,12 +72,35 @@ $(document).ready(function() {
           }
         });
 
-        console.log(dataArray);
-
         var data = google.visualization.arrayToDataTable(dataArray);
 
         var options = {'title':'Total users & files', 'width':1000, 'height':350, 'colors':['#8190ff','#0a102d']};
         var chart = new google.visualization.LineChart(document.getElementById('total_users_and_files_chart'));
+        chart.draw(data, options);
+      }
+    });
+  }
+
+  function extensions_chart() {
+    $.ajax({
+      type : 'post',
+      url : 'admin/php/chart_extensions.php',
+      dataType : 'json',
+      success : (db_data) =>
+      {
+        var dataArray = [['Extensions', 'Percentage']];
+
+        // convert json data to a datatable for google API
+        db_data.forEach(function (obj) {
+          for (let [key, value] of Object.entries(obj)) {
+            dataArray.push([key, value]);
+          }
+        });
+
+        var data = google.visualization.arrayToDataTable(dataArray);
+
+        var options = {'title':'Most popular file extensions', 'width':1000, 'height':350, 'colors':['#0a102d','#122772','#8190ff','#c2cad0','#424866','#333333']};
+        var chart = new google.visualization.PieChart(document.getElementById('extensions_chart'));
         chart.draw(data, options);
       }
     });

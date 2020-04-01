@@ -16,23 +16,25 @@ include_once '../php/session.php';
 
     <main id="dashboard" class="page-content">
       <section class="container mt-5">
-        <h6>Total shares per month</h6>
+        <h6>Total users & files</h6>
         <div class="card mt-1 mb-3 p-2">
-          <div id="shares_chart"></div>
+          <div id="total_users_and_files_chart"></div>
         </div>
         <h6>File uploads per week</h6>
         <div class="card mt-1 mb-3 p-2">
           <div id="file_upload_chart"></div>
         </div>
-        <h6>Total users & files</h6>
+        <h6>Total shares per month</h6>
         <div class="card mt-1 mb-3 p-2">
-          <div id="total_users_and_files_chart"></div>
+          <div id="shares_chart"></div>
         </div>
+        <h6>Most popular file extensions</h6>
         <div class="card mt-1 mb-3 p-2">
-          <div id=""></div>
+          <div id="extensions_chart"></div>
         </div>
+        <h6>Total data size per week</h6>
         <div class="card mt-1 mb-3 p-2">
-          <div id=""></div>
+          <div id="data_size_chart"></div>
         </div>
       </section>
     </main>
