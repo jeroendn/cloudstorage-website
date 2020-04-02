@@ -8,21 +8,23 @@ main.page-content {
   min-height: 50vh;
 }
 
-.card {
-  overflow-x: scroll;
-  overflow: overlay;
-
-  > div {
-    background-image: url('../media/cloud_loader.gif');
-    height: 100%;
-    min-height: 200px;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+#dashboard {
+  .card {
+    overflow-x: scroll;
+    overflow: overlay;
 
     > div {
-      display: flex;
-      justify-content: center;
+      background-image: url('../media/cloud_loader.gif');
+      height: 100%;
+      min-height: 200px;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      > div {
+        display: flex;
+        justify-content: center;
+      }
     }
   }
 }

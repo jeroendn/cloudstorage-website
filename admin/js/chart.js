@@ -5,6 +5,8 @@ $(document).ready(function() {
   google.charts.setOnLoadCallback(file_upload_chart);
   google.charts.setOnLoadCallback(total_users_and_files_chart);
   google.charts.setOnLoadCallback(extensions_chart);
+  google.charts.setOnLoadCallback(data_size_chart);
+  google.charts.setOnLoadCallback(total_files_chart);
 
   function shares_chart() {
     $.ajax({
@@ -88,7 +90,7 @@ $(document).ready(function() {
       dataType : 'json',
       success : (db_data) =>
       {
-        var dataArray = [['Extensions', 'Percentage']];
+        var dataArray = [['Extension', 'Percentage']];
 
         // convert json data to a datatable for google API
         db_data.forEach(function (obj) {
@@ -106,69 +108,70 @@ $(document).ready(function() {
     });
   }
 
+  function data_size_chart() {
+    $.ajax({
+      type : 'post',
+      url : 'admin/php/chart_data_size.php',
+      dataType : 'json',
+      success : (db_data) =>
+      {
+        var dataArray = [['Week', 'Size in GB']];
+
+        // convert json data to a datatable for google API
+        db_data.forEach(function (obj) {
+          for (let [key, value] of Object.entries(obj)) {
+            dataArray.push([key, value]);
+          }
+        });
+
+        var data = google.visualization.arrayToDataTable(dataArray);
+
+        var options = {'title':'Total data size per week', 'width':1000, 'height':350, 'colors':['#8190ff']};
+        var chart = new google.visualization.ColumnChart(document.getElementById('data_size_chart'));
+        chart.draw(data, options);
+      }
+    });
+  }
+
+  function total_files_chart() {
+    $.ajax({
+      type : 'post',
+      url : 'admin/php/chart_total_files.php',
+      dataType : 'json',
+      success : (db_data) =>
+      {
+        var dataArray = [['Week', 'Files']];
+
+        // convert json data to a datatable for google API
+        db_data.forEach(function (obj) {
+          for (let [key, value] of Object.entries(obj)) {
+            dataArray.push([key, value]);
+          }
+        });
+
+        var data = google.visualization.arrayToDataTable(dataArray);
+
+        var options = {'title':'Total files per week', 'width':1000, 'height':350, 'colors':['#8190ff']};
+        var chart = new google.visualization.ColumnChart(document.getElementById('total_files_chart'));
+        chart.draw(data, options);
+
+        $('#total_files_chart').css('display', 'none');
+      }
+    });
+  }
+
+  // chart selectbox function
+  $('#chart_toggle').on('change', function() {
+    let selected = $(this).children("option:selected").val();
+
+    if (selected == 'file_size') {
+      $(this).closest('.card').find('#data_size_chart').css('display', 'block');
+      $(this).closest('.card').find('#total_files_chart').css('display', 'none');
+    }
+    else {
+      $(this).closest('.card').find('#data_size_chart').css('display', 'none');
+      $(this).closest('.card').find('#total_files_chart').css('display', 'block');
+    }
+  });
+
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// google.charts.load('current', {'packages':['corechart']});
-// google.charts.setOnLoadCallback(shares_chart);
-// // google.charts.setOnLoadCallback(chart);
-//
-// // Draw the shares chart
-// function shares_chart() {
-//   $.ajax({
-//     type : 'post',
-//     url : 'admin/php/chart_shares_data.php',
-//     dataType : 'json',
-//     success : (db_data) =>
-//     {
-//       $('main').append(db_data[0].march);
-//       console.log(db_data);
-//       // data = db_data;
-//
-//       var dataArray = [['Month', 'Shares']];
-//
-//       for (var i = 0; i < db_data.length; i++) {
-//         console.log(db_data[i]);
-//         dataArray.push(['test', db_data[0].month1]);
-//       }
-//
-//       var data = google.visualization.arrayToDataTable(dataArray);
-//       // var data = google.visualization.arrayToDataTable([
-//       //   ['Januari', 'Shares'],
-//       //   ['Januari', 10],
-//       //   ['Februari', 8],
-//       //   ['March', 2],
-//       //   ['April', 2],
-//       //   ['May', 2],
-//       //   ['June', 2],
-//       //   ['July', 8],
-//       //   ['test', db_data[0].march]
-//       // ]);
-//
-//       // var result1, result2, message;
-//
-//       // for(var i = 0; i < db_data.length; i++) {
-//       //   result1 = db_data[i].result1;
-//       //   result2 = db_data[i].result2;
-//       //   message = db_data[i].message;
-//       //   $('main').append().html(result1);
-//       // }
-//
-//       var options = {'title':'My Average Day', 'width':550, 'height':400};
-//       var chart = new google.visualization.ColumnChart(document.getElementById('shares_chart'));
-//       chart.draw(data, options);
-//     }
-//   });
-// }

@@ -3,7 +3,7 @@ session_start();
 
 // session timeout
 $time = $_SERVER['REQUEST_TIME'];
-$timeout_duration = 3600;
+$timeout_duration = 30000;
 if (isset($_SESSION['LAST_ACTIVITY']) &&
    ($time - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
     session_unset();

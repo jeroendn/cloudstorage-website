@@ -32,9 +32,14 @@ include_once '../php/session.php';
         <div class="card mt-1 mb-3 p-2">
           <div id="extensions_chart"></div>
         </div>
-        <h6>Total data size per week</h6>
+        <h6>Total data size & files per week</h6>
         <div class="card mt-1 mb-3 p-2">
+          <select id="chart_toggle">
+            <option value="file_size">Total files size</option>
+            <option value="file_amount">Total number of files</option>
+          </select>
           <div id="data_size_chart"></div>
+          <div id="total_files_chart"></div>
         </div>
       </section>
     </main>
