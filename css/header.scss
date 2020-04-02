@@ -49,9 +49,28 @@ header#header {
       transform: skew(-4deg, -4deg);
       user-select: none;
       letter-spacing: -2.5px;
+      animation-name: rgb;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease;
+      animation-delay: 300s;
 
       @media screen and (max-width: $break-tablet) {
         font-size: 20px;
+      }
+
+      @keyframes rgb {
+        0%   {color: white;}
+        10%  {color: yellow;}
+        20%  {color: orange;}
+        30% {color: olive;}
+        40% {color: green;}
+        50% {color: red;}
+        60% {color: cyan;}
+        70% {color: blue;}
+        80% {color: purple;}
+        90% {color: violet;}
+        100% {color: white;}
       }
     }
   }

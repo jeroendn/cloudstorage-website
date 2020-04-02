@@ -1,0 +1,9 @@
+DB:
+$servername = "remotemysql.com";
+$dBUsername = "JOi0EgLy4t";
+$dBPassword = "4z4RPRZYfv";
+$dBName = "JOi0EgLy4t";
+
+Login:
+jeroendenijs@outlook.com
+!21424
