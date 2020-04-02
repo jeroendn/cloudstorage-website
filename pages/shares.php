@@ -17,7 +17,7 @@ include_once __DIR__ . '../../php/session.php';
     <main id="shares" class="page-content">
       <section class="container mt-3">
         <?php
-        $sql = "SELECT * FROM (share INNER JOIN document ON share.document_id = document.document_id) WHERE share.user_id = '" . $_SESSION['user_id'] . "'";
+        $sql = "SELECT * FROM (share INNER JOIN document ON share.document_id = document.document_id) WHERE share.user_id = '" . $_SESSION['user_id'] . "' ORDER BY share.share_date DESC";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $documents = $stmt->fetchAll(PDO::FETCH_ASSOC);
