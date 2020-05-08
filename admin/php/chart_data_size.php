@@ -22,7 +22,7 @@ foreach ($weeks as $week) {
 
   $total_size = 0;
   foreach ($documents as $document) {
-    $file_dir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . str_replace(' ', '_', $document['user_name']) . $document['user_id'] . '/' . $document['document_name'];
+    $file_dir = '../../uploads/' . str_replace(' ', '_', $document['user_name']) . $document['user_id'] . '/' . $document['document_name'];
     $total_size = $total_size + filesize($file_dir);
   }
   // convert bytes to GB
