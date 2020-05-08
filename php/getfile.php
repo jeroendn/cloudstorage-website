@@ -1,6 +1,6 @@
 <?php
 session_start();
-$dir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/';
+$dir = '../uploads/';
 $file = (!empty($_GET['file'])) ? basename($_GET['file']) : false;
 $user = str_replace(' ', '_', $_SESSION['user_name']) . $_SESSION['user_id'];
 

@@ -1,11 +1,11 @@
 <?php
 function get_file_dir($doc_name) {
-  $file_dir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . str_replace(' ', '_', $_SESSION['user_name']) . $_SESSION['user_id'] . '/' . $doc_name;
+  $file_dir = '../uploads/' . str_replace(' ', '_', $_SESSION['user_name']) . $_SESSION['user_id'] . '/' . $doc_name;
   return $file_dir;
 }
 
 function get_shared_file_dir($username, $user_id, $doc_name) {
-  $file_dir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . str_replace(' ', '_', $username) . $user_id . '/' . $doc_name;
+  $file_dir = '../uploads/' . str_replace(' ', '_', $username) . $user_id . '/' . $doc_name;
   return $file_dir;
 }
 

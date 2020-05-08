@@ -2,7 +2,7 @@
 include_once __DIR__ . '../../php/dbconnection.php';
 
 session_start();
-$dir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/';
+$dir = '../uploads/';
 $file = (!empty($_GET['file'])) ? basename($_GET['file']) : false;
 $user_name = (!empty($_GET['user'])) ? basename($_GET['user']) : false;
 $user_id = (!empty($_GET['user_id'])) ? basename($_GET['user_id']) : false;

@@ -1,11 +1,11 @@
 #DON'T SHOW DIRECTORY LISTINGS
 Options -Indexes
 
-ErrorDocument 400 /cloudstorage/pages/error.php
-ErrorDocument 401 /cloudstorage/pages/error.php
-ErrorDocument 403 /cloudstorage/pages/error.php
-ErrorDocument 404 /cloudstorage/pages/error.php
-ErrorDocument 405 /cloudstorage/pages/error.php
+ErrorDocument 400 /pages/error.php
+ErrorDocument 401 /pages/error.php
+ErrorDocument 403 /pages/error.php
+ErrorDocument 404 /pages/error.php
+ErrorDocument 405 /pages/error.php
 
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d

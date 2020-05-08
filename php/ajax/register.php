@@ -33,7 +33,7 @@ if ($mail != '' && $password != '' && $name != '' && filter_var($mail, FILTER_VA
     $user = $stmt->fetchAll();
 
     // create a folder for the user it's files
-    mkdir($_SERVER['DOCUMENT_ROOT'] . '/uploads/' . str_replace(' ', '_', $name) . $user[0]['user_id']);
+    mkdir('../../uploads/' . str_replace(' ', '_', $name) . $user[0]['user_id']);
 
     // sent to login in order to set session variables
     include 'login_submit.php';
